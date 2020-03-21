@@ -32,7 +32,8 @@ public class enemy : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col) {
         if (col.gameObject.CompareTag(bulletTag))  {
-            Destroy(col.gameObject);	
+            Destroy(col.gameObject);
+			scoreManager.instance.IncreaseScore(1);
         }
 
         if (col.gameObject.CompareTag(playerTag) || col.gameObject.CompareTag(bulletTag)) {
