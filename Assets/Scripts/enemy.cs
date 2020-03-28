@@ -34,11 +34,13 @@ public class enemy : MonoBehaviour {
         if (col.gameObject.CompareTag(bulletTag))  {
             Destroy(col.gameObject);
 			scoreManager.instance.IncreaseScore(1);
+			DestroyEnemy();
         }
 
-        if (col.gameObject.CompareTag(playerTag) || col.gameObject.CompareTag(bulletTag)) {
-            DestroyEnemy();
-        }
+		if (col.gameObject.CompareTag(playerTag))  {
+			healthManager.instance.ChangeHealth(-1);
+			DestroyEnemy();
+		}
 	}
 
 	void DestroyEnemy() {

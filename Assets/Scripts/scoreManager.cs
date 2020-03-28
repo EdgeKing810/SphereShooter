@@ -23,6 +23,10 @@ public class scoreManager : MonoBehaviour {
         UpdateScore();
     }
 
+    public int GetCurrentScore() {
+        return score;
+    }
+
     void UpdateScore() {
         scoreText.text = "Score: " + score.ToString();
     }

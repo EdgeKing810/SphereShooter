@@ -8,6 +8,8 @@ public class cameraFollow : MonoBehaviour {
     public float height = 12.5f;
 
     void LateUpdate() {
-        this.transform.position = new Vector3(player.position.x, height, player.position.z);
+        if (player) {
+            this.transform.position = new Vector3(player.position.x, height, player.position.z);
+        }
     }
 }
