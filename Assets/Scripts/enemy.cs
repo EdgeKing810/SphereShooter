@@ -10,6 +10,8 @@ public class enemy : MonoBehaviour {
 	public float maxSpeed = 6.0f;
 
 	float speed;
+	public int health = 1;
+	public int damageToCause = 1;
 
 	GameObject player;
 	public GameObject enemyExplosionPrefab;
@@ -17,7 +19,7 @@ public class enemy : MonoBehaviour {
 	AudioSource audioSource;
 
 	void Start() {
-		speed = Random.Range(minSpeed, maxSpeed);
+		speed = Random.Range(minSpeed, maxSpeed) + (Time.time / 25);
 		audioSource = GetComponent<AudioSource>();
         player = GameObject.FindWithTag(playerTag);
 	}
@@ -34,11 +36,15 @@ public class enemy : MonoBehaviour {
         if (col.gameObject.CompareTag(bulletTag))  {
             Destroy(col.gameObject);
 			scoreManager.instance.IncreaseScore(1);
-			DestroyEnemy();
+			health--;
         }
 
 		if (col.gameObject.CompareTag(playerTag))  {
-			healthManager.instance.ChangeHealth(-1);
+			healthManager.instance.ChangeHealth(-damageToCause);
+			DestroyEnemy();
+		}
+
+		if (health <= 0) {
 			DestroyEnemy();
 		}
 	}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour {
     public float delay;
-    public GameObject enemy;
+    public GameObject[] enemies;
 
     void Start() {
         InvokeRepeating("SpawnEnemy", 0.0f, delay);
@@ -12,6 +12,7 @@ public class enemySpawner : MonoBehaviour {
 
     void SpawnEnemy() {
         int randomPos = (int)Random.Range(0, transform.childCount);
+        GameObject enemy = enemies[(int)Random.Range(0, enemies.Length)];
         Instantiate(enemy, transform.GetChild(randomPos).position, enemy.transform.rotation);
     }
 }

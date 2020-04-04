@@ -2178,6 +2178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136452904}
   - component: {fileID: 1136452905}
+  - component: {fileID: 1136452906}
   m_Layer: 0
   m_Name: SpawnPoints
   m_TagString: Untagged
@@ -2216,7 +2217,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 5
-  enemy: {fileID: 5492422355638918600, guid: e3e9b7fbcde735b2c9d721908bfde763, type: 3}
+  enemies:
+  - {fileID: 5492422355638918600, guid: e3e9b7fbcde735b2c9d721908bfde763, type: 3}
+  - {fileID: 5492422355638918600, guid: a24bc70c1946bfe838973f9fdbcf74ef, type: 3}
+--- !u!114 &1136452906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136452903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d915d600a97f9717c85dcdc66866dddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBox: {fileID: 480327820226836086, guid: b0d129df5c56fc24da35ab1b81b616a8,
+    type: 3}
+  ground: {fileID: 1548626349}
+  delay: 3
 --- !u!1 &1163443262
 GameObject:
   m_ObjectHideFlags: 0
